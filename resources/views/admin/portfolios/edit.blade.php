@@ -40,7 +40,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="category" class="form-label">Type</label>
+            <label for="category" class="form-label">Tipo</label>
 
             <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example" id="type" name="type_id">    
                 @foreach ($types as $type)
@@ -50,6 +50,27 @@
                 @endforeach
             </select>
             @error('type_id')
+                <div class="invalid-feedback">
+                    {{ $message }} 
+                </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <h3>Tecnologia</h3>
+
+            @foreach ($technologies as $technology)
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technology[]"  @if (in_array($technology->id, old('technologies', $portfolio->technologies->pluck('id')->all())))
+                    checked  
+                @endif >
+                <label class="form-check-label" for="flexCheckDefault">
+                  {{$technology->name}}
+                </label>
+            </div>
+            @endforeach
+
+            @error('technologies')
                 <div class="invalid-feedback">
                     {{ $message }} 
                 </div>
