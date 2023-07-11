@@ -124,7 +124,6 @@ class PortfolioController extends Controller
 
         $data = $request->all();
 
-
         // salvare i dati nel db se validi
         $portfolio->name = $data['name'];
         $portfolio->client_name = $data['client_name'];
@@ -137,7 +136,7 @@ class PortfolioController extends Controller
         $portfolio->update();
 
         // associare i tag
-        $portfolio->technologies()->sync($data['technologies'] ?? []);
+        $portfolio->technologies()->sync($data['technology'] ?? []);
 
         // reindirizzare su una rotta di tipo get
 
