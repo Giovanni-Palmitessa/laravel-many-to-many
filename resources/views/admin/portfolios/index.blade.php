@@ -17,7 +17,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome Progetto</th>
                 <th scope="col">Nome del Cliente</th>
-                <th scope="col">Tipo</th>
+                <th scope="col">Tipo</th>                
+                <th scope="col">Tecnologia</th>                
                 <th scope="col">Data Inizio Progetto</th>
                 <th scope="col">Data Fine Progetto</th>
             </tr>
@@ -29,6 +30,7 @@
                     <td>{{ $portfolio->name }}</td>
                     <td>{{ $portfolio->client_name }}</td>
                     <td><a href="{{ route('admin.types.show', ['type' => $portfolio->type]) }}">{{ $portfolio->type->name }}</a></td>
+                    <td>{{ implode(', ', $portfolio->technologies->pluck('name')->all()) }}</td>
                     <td>{{ $portfolio->pickup_date}}</td>
                     <td>{{ $portfolio->deploy_date }}</td>
                     <td>
