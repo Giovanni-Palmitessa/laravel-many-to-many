@@ -138,7 +138,7 @@ class PortfolioController extends Controller
         $portfolio->update();
 
         // associare i tag
-        $portfolio->technologies()->sync($data['technology'] ?? []);
+        $portfolio->technologies()->sync($data['technologies'] ?? []);
 
         // reindirizzare su una rotta di tipo get
 

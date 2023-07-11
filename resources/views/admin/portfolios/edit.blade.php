@@ -61,7 +61,7 @@
 
             @foreach ($technologies as $technology)
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technology[]"  @if (in_array($technology->id, old('technologies', $portfolio->technologies->pluck('id')->all())))
+                <input class="form-check-input" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technologies[]"  @if (in_array($technology->id, old('technologies', $portfolio->technologies->pluck('id')->all())))
                     checked  
                 @endif >
                 <label class="form-check-label" for="flexCheckDefault">
@@ -69,12 +69,6 @@
                 </label>
             </div>
             @endforeach
-
-            @error('technologies')
-                <div class="invalid-feedback">
-                    {{ $message }} 
-                </div>
-            @enderror
         </div>
 
         <div class="mb-3">
