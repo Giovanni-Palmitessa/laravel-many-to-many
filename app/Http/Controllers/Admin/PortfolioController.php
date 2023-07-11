@@ -151,6 +151,9 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
+        // dissociare tutti i tag
+        $portfolio->technologies->detach();
+
         $portfolio->delete();
 
         return to_route('admin.portfolios.index')->with('delete_success', $portfolio);
