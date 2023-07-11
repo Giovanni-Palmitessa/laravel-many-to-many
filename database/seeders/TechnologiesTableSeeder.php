@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -46,5 +47,9 @@ class TechnologiesTableSeeder extends Seeder
                 'name' => 'Java'
             ],
         ];
+
+        foreach ($technologies as $technology) {
+            Technology::create($technology);
+        }
     }
 }
