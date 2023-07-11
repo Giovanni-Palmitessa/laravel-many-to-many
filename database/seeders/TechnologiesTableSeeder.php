@@ -14,6 +14,37 @@ class TechnologiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $technologies = [
+            [
+                'name' => 'HTML'
+            ],
+            [
+                'name' => 'CSS'
+            ],
+            [
+                'name' => 'JavaScript'
+            ],
+            [
+                'name' => 'Vue JS'
+            ],
+            [
+                'name' => 'Vite'
+            ],
+            [
+                'name' => 'PHP'
+            ],
+            [
+                'name' => 'Laravel'
+            ],
+            [
+                'name' => 'C++'
+            ],
+            [
+                'name' => 'Pyton'
+            ],
+            [
+                'name' => 'Java'
+            ],
+        ];
     }
 }
