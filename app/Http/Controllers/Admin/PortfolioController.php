@@ -152,7 +152,9 @@ class PortfolioController extends Controller
     public function destroy(Portfolio $portfolio)
     {
         // dissociare tutti i tag
-        $portfolio->technologies->detach();
+        $portfolio->technologies()->detach();
+
+        // eliminare il portfolio
 
         $portfolio->delete();
 
