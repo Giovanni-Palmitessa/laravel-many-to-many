@@ -18,6 +18,8 @@ class PortfolioController extends Controller
         'pickup_date' => 'required|date',
         'deploy_date' => 'required|date',
         'description' => 'required|string',
+        'technologies' => 'nullable|array',
+        'technologies.*' => 'integer|exists:technologies,id',
     ];
 
     private $validations_messages = [
