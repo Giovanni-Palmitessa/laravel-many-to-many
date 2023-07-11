@@ -106,7 +106,8 @@ class PortfolioController extends Controller
     public function edit(Portfolio $portfolio)
     {
         $types = Type::all();
-        return view('admin.portfolios.edit', compact('portfolio', 'types'));
+        $technologies = Technology::all();
+        return view('admin.portfolios.edit', compact('portfolio', 'types', 'technologies'));
     }
 
     /**
@@ -134,6 +135,9 @@ class PortfolioController extends Controller
         $portfolio->description = $data['description'];
 
         $portfolio->update();
+
+        // associare i tag
+        $portfolio->technologies()->sync($data['technologies'] ?? []);
 
         // reindirizzare su una rotta di tipo get
 
