@@ -30,7 +30,12 @@
                     <td>{{ $portfolio->name }}</td>
                     <td>{{ $portfolio->client_name }}</td>
                     <td><a href="{{ route('admin.types.show', ['type' => $portfolio->type]) }}">{{ $portfolio->type->name }}</a></td>
-                    <td>{{ implode(', ', $portfolio->technologies->pluck('name')->all()) }}</td>
+                    {{-- <td>{{ implode(', ', $portfolio->technologies->pluck('name')->all()) }}</td> --}}
+                    <td>
+                        @foreach ($portfolio->technologies as $technology)
+                            <a href="{{ route('admin.technologies.show', ['technology' => $technology]) }}">{{ $technology->name }}</a>{{ !$loop->last ? ',' : '' }}
+                        @endforeach
+                    </td>
                     <td>{{ $portfolio->pickup_date}}</td>
                     <td>{{ $portfolio->deploy_date }}</td>
                     <td>
