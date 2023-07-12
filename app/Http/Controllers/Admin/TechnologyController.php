@@ -83,7 +83,7 @@ class TechnologyController extends Controller
     public function edit(Technology $technology)
     {
         $technologies = Technology::all();
-        return view('admin.technologies.edit', compact('technologies'));
+        return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
