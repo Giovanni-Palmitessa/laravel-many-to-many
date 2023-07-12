@@ -38,6 +38,16 @@
               <li><a class="dropdown-item" href="{{route('admin.types.create')}}">Add New Type</a></li>
             </ul>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Technologies
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{route('admin.technologies.index')}}">Index</a></li>
+              <li><a class="dropdown-item" href="{{route('admin.technologies.create')}}">Add New Technology</a></li>
+            </ul>
+          </li>
         </ul>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
