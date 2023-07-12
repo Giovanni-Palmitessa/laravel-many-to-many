@@ -51,7 +51,7 @@ class TechnologyController extends Controller
 
         // reindirizzare su una rotta di tipo get
 
-        return to_route('admin.technologies.show', ['technologies' => $newTechnology]);
+        return to_route('admin.technologies.show', ['technology' => $newTechnology]);
     }
 
     /**
