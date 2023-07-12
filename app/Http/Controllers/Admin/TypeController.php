@@ -121,6 +121,11 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        foreach ($type->portfolios as $portfolio) {
+            $portfolio->type_id = 1;
+            $portfolio->update();
+        }
+
         $type->delete();
 
         return to_route('admin.types.index')->with('delete_success', $type);

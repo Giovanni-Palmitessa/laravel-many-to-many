@@ -17,6 +17,11 @@ class TypesTableSeeder extends Seeder
     {
         $types = [
             [
+                'name' => 'Senza Categoria',
+                'description' => 'Nessuna categoria associata.',
+            ],
+
+            [
                 'name' => 'Full Stack',
                 'description' => 'Tipo di sviluppo web che copre il Front End e il Back End.',
             ],
