@@ -2,12 +2,12 @@
 
 @section('contents')
 
-    <h1>Types</h1>
+    <h1>Technologies</h1>
 
     @if (session('delete_success'))
-        @php $type = session('delete_success') @endphp
+        @php $technology = session('delete_success') @endphp
         <div class="alert alert-danger">
-            La tipologia "{{ $type->name }}" è stata eliminata per sempre :(
+            La tecnologia "{{ $technology->name }}" è stata eliminata per sempre :(
         </div>
     @endif
 
@@ -15,25 +15,25 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Tipo</th>
+                <th scope="col">Tecnologia</th>
                 <th scope="col">Azioni</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($types as $type)
+            @foreach ($technologies as $technology)
                 <tr>
-                    <th scope="row">{{ $type->id }}</th>
-                    <td>{{ $type->name }}</td>
+                    <th scope="row">{{ $technology->id }}</th>
+                    <td>{{ $$technology->name }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('admin.types.show', ['type' => $type]) }}">View</a>
-                        <a class="btn btn-warning" href="{{ route('admin.types.edit', ['type' => $type]) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('admin.technology.show', ['technology' => $technology]) }}">View</a>
+                        <a class="btn btn-warning" href="{{ route('admin.technology.edit', ['technology' => $technology]) }}">Edit</a>
 
                         <button 
                         type="button" 
                         class="btn btn-danger js-delete" 
                         data-bs-toggle="modal" 
                         data-bs-target="#deleteModal" 
-                        data-id="{{ $type->id }}">
+                        data-id="{{ $technology->id }}">
                             Delete
                         </button>
 
@@ -57,10 +57,10 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <form
                         action=""
-                        data-template="{{ route('admin.types.destroy', ['type' => '*****']) }}"
+                        data-template="{{ route('admin.technology.destroy', ['technology' => '*****']) }}"
                         method="post"
                         class="d-inline-block"
-                        id="confirm-delete-type"
+                        id="confirm-delete-technology"
                     >
                         @csrf
                         @method('delete')
