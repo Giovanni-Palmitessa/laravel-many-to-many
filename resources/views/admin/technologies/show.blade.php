@@ -2,12 +2,11 @@
 
 @section('contents')
 
-    <h1>{{$type->name}}</h1>
-    <p>{{$type->description}}</p>
+    <h1>{{$technology->name}}</h1>
 
-    <h2>Portfolios with this type:</h2>
+    <h2>Portfolios with this technology:</h2>
     <ul>
-        @foreach ($type->portfolios as $portfolio)
+        @foreach ($technology->portfolios as $portfolio)
             <li><a href="{{ route('admin.portfolios.show', ['portfolio' => $portfolio]) }}">{{ $portfolio->name }}</a></li>
         @endforeach
     </ul>
