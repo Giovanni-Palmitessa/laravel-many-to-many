@@ -23,10 +23,10 @@
             @foreach ($technologies as $technology)
                 <tr>
                     <th scope="row">{{ $technology->id }}</th>
-                    <td>{{ $$technology->name }}</td>
+                    <td>{{ $technology->name }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('admin.technology.show', ['technology' => $technology]) }}">View</a>
-                        <a class="btn btn-warning" href="{{ route('admin.technology.edit', ['technology' => $technology]) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('admin.technologies.show', ['technology' => $technology]) }}">View</a>
+                        <a class="btn btn-warning" href="{{ route('admin.technologies.edit', ['technology' => $technology]) }}">Edit</a>
 
                         <button 
                         type="button" 
@@ -57,7 +57,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <form
                         action=""
-                        data-template="{{ route('admin.technology.destroy', ['technology' => '*****']) }}"
+                        data-template="{{ route('admin.technologies.destroy', ['technology' => '*****']) }}"
                         method="post"
                         class="d-inline-block"
                         id="confirm-delete-technology"
