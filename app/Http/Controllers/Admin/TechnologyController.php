@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
 {
+    private $validations = [
+        'name' => 'required|string|min:5|max:20',
+    ];
+
+    private $validations_messages = [
+        'required' => 'Il campo :attribute è richiesto',
+        'min' => 'Il campo :attribute deve avere almeno :min caratteri',
+        'max' => 'Il campo :attribute deve avere massimo :max caratteri',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +48,7 @@ class TechnologyController extends Controller
     public function store(Request $request)
     {
         // validare i dati del form
-        // $request->validate($this->validations, $this->validations_messages);
+        $request->validate($this->validations, $this->validations_messages);
 
         $data = $request->all();
 
@@ -73,7 +82,8 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        $technologies = Technology::all();
+        return view('admin.technologies.edit', compact('technologies'));
     }
 
     /**
