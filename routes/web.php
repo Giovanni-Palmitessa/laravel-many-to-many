@@ -27,6 +27,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
         Route::resource('portfolios', PortfolioController::class);
         Route::resource('types', TypeController::class);
+        Route::resource('technologies', TechnologyController::class);
     });
 
 Route::middleware('auth')
