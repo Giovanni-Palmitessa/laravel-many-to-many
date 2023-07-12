@@ -95,7 +95,19 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
-        //
+        // validare i dati del form
+        $request->validate($this->validations, $this->validations_messages);
+
+        $data = $request->all();
+
+        // salvare i dati nel db se validi
+        $technology->name = $data['name'];
+
+        $technology->update();
+
+        // reindirizzare su una rotta di tipo get
+
+        return to_route('admin.technologies.show', ['technology' => $technology]);
     }
 
     /**
