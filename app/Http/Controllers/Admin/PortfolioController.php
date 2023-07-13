@@ -16,6 +16,7 @@ class PortfolioController extends Controller
         'client_name' => 'required|string|max:100|min:5',
         'type_id' => 'required|integer|exists:types,id',
         'url_image' => 'nullable|url|max:400',
+        'image' => 'nullable|image|max:400',
         'pickup_date' => 'required|date',
         'deploy_date' => 'required|date',
         'description' => 'required|string',
