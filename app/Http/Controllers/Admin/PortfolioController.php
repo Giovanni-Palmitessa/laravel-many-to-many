@@ -71,9 +71,15 @@ class PortfolioController extends Controller
 
         // salvare l'immagine nella cartella degli uploads
         // prendere il percorso dell'immagine appena salvata
-        $imagePath = Storage::put('uploads', $data['image']);
-        // dd($imagePath);
+        $imagePath = null;
 
+        // if (isset($data['image'])) {
+        //     $imagePath = Storage::put('uploads', $data['image']);
+        // }
+
+        if ($request->has('image')) {
+            $imagePath = Storage::put('uploads', $data['image']);
+        }
 
         // salvare i dati nel db se validi
         $newPortfolio = new Portfolio();
@@ -134,7 +140,7 @@ class PortfolioController extends Controller
 
         $data = $request->all();
 
-        if ($data['image']) {
+        if (isset($data['image'])) {
             // salvare l'immagine nuova
             $imagePath = Storage::put('uploads', $data['image']);
 
