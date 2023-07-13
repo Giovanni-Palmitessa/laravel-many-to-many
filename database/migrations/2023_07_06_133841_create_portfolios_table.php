@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('client_name', 100);
             $table->string('url_image', 400);
+            $table->string('image', 400);
             $table->date('pickup_date');
             $table->date('deploy_date');
             $table->text('description');
