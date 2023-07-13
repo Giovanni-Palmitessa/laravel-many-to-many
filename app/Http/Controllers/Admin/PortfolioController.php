@@ -7,6 +7,7 @@ use App\Models\Portfolio;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -67,6 +68,11 @@ class PortfolioController extends Controller
 
         $data = $request->all();
 
+        // salvare l'immagine nella cartella degli uploads
+        // prendere il percorso dell'immagine appena salvata
+        $imagePath = Storage::put('uploads', $data['image']);
+        // dd($imagePath);
+
 
         // salvare i dati nel db se validi
         $newPortfolio = new Portfolio();
@@ -74,6 +80,7 @@ class PortfolioController extends Controller
         $newPortfolio->client_name = $data['client_name'];
         $newPortfolio->type_id = $data['type_id'];
         $newPortfolio->url_image = $data['url_image'];
+        $newPortfolio->image = $imagePath;
         $newPortfolio->pickup_date = $data['pickup_date'];
         $newPortfolio->deploy_date = $data['deploy_date'];
         $newPortfolio->description = $data['description'];
