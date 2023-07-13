@@ -3,7 +3,7 @@
 @section('contents')
     <h1>Add new Post</h1>
     
-    <form method="POST" action="{{ route('admin.portfolios.store') }}">
+    <form method="POST" action="{{ route('admin.portfolios.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
 
         <div class="mb-3">
