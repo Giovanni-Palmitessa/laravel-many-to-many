@@ -180,6 +180,10 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
+        if ($portfolio->image) {
+            Storage::delete($portfolio->image);
+        }
+
         // dissociare tutti i tag
         $portfolio->technologies()->detach();
 
