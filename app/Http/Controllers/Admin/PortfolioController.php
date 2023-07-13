@@ -134,6 +134,19 @@ class PortfolioController extends Controller
 
         $data = $request->all();
 
+        if ($data['image']) {
+            // salvare l'immagine nuova
+            $imagePath = Storage::put('uploads', $data['image']);
+
+            // eliminare l'immagine vecchia
+            if ($portfolio->image) {
+                Storage::delete($portfolio->image);
+            }
+
+            // aggiormare il valore nella colonna con l'indirizzo dell'immagine nuova
+            $portfolio->image = $imagePath;
+        }
+
         // salvare i dati nel db se validi
         $portfolio->name = $data['name'];
         $portfolio->client_name = $data['client_name'];
